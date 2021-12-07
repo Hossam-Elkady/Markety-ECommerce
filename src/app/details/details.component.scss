@@ -1,0 +1,25 @@
+.rounded {
+  border: 1px #d5d9d9 solid;
+  padding: 20px;
+}
+.ddd {
+  color: #565959;
+}
+select {
+  border: 1px #d5d9d9 solid;
+  :focus {
+    border: 1px #d5d9d9 solid !important;
+  }
+}
+.btn2 {
+  background-color: #fa8900;
+}
+.btn:focus {
+  box-shadow: none !important;
+}
+.List {
+  background-color: #ebecef;
+  width: 100%;
+  box-shadow: 0 1px 2px rgb(77, 76, 76) inset, 0 -1px 2px rgb(77, 76, 76) inset,
+    1px 0px 2px rgb(77, 76, 76) inset, -1px 0px 2px rgb(77, 76, 76) inset;
+}

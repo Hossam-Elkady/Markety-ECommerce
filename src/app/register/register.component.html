@@ -1,0 +1,45 @@
+<div class="container">
+  <h1 class="mt-5 ">Register</h1>
+  <form [formGroup]="registerForm"  class="py-5" (ngSubmit)="submit()">
+    <div class="my-3">
+      <label class="my-2 ">First Name</label>
+      <input type="text" class="form-control" placeholder="Enter your First Name" formControlName="first_name">
+      <div class="errors" *ngIf="registerForm.controls.first_name.invalid&&registerForm.controls.first_name.touched">
+        <p class=" my-2" *ngIf="registerForm.controls.first_name.errors?.required">first name is required</p>
+        <p class=" my-2" *ngIf="registerForm.controls.first_name.errors?.minlength">first name min Length is 3 letters
+        </p>
+        <p class=" my-2" *ngIf="registerForm.controls.first_name.errors?.maxlength">first name max Length is 10 letters
+        </p>
+      </div>
+    </div>
+    <div class="my-3">
+      <label class="my-2 ">Last Name</label>
+      <input type="text" class="form-control" placeholder="Enter your Last Name" formControlName="last_name">
+      <div class="errors" *ngIf="registerForm.controls.last_name.invalid&&registerForm.controls.last_name.touched">
+        <p class=" my-2" *ngIf="registerForm.controls.last_name.errors?.required">last name is required</p>
+        <p class=" my-2" *ngIf="registerForm.controls.last_name.errors?.minlength">last name min Length is 3 letters</p>
+        <p class=" my-2" *ngIf="registerForm.controls.last_name.errors?.maxlength">last name max Length is 10 letters
+        </p>
+      </div>
+    </div>
+    <div class="my-3">
+      <label class="my-2 ">Email</label>
+      <input type="email" class="form-control" placeholder="Enter your Email" formControlName="email">
+      <div class="errors" *ngIf="registerForm.controls.email.invalid&&registerForm.controls.email.touched">
+        <p class=" my-2" *ngIf="registerForm.controls.email.errors?.email">enter valid email</p>
+        <p class=" my-2" *ngIf="registerForm.controls.email.errors?.required">email is required</p>
+      </div>
+    </div>
+    <div class="my-3">
+      <label class="my-2 ">Password</label>
+      <input type="password" class="form-control" placeholder="Enter your Password" formControlName="password">
+      <div class="errors" *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+        <p class=" my-2" *ngIf="registerForm.controls.password.errors?.required">enter valid password</p>
+        <p class=" my-2" *ngIf="registerForm.controls.password.errors?.minlength">password minimum length is 5 </p>
+        <p class=" my-2" *ngIf="registerForm.controls.password.errors?.maxlength">password maximum length is 20</p>
+      </div>
+    </div>
+    <button [disabled]="registerForm.invalid" class="submit btn btn-warning mt-3 text-white">Submit</button>
+    <p class=" mt-5" *ngIf="registered">this email is already registered</p>
+  </form>
+</div>

@@ -1,0 +1,145 @@
+<nav>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="navbar navbar-expand-lg navbar-light bg-nav1">
+      <div class="container">
+        <a class="navbar-brand" routerLink="home" nav-link text-capitalize>MARKETY</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex rounded-pill my-2 me-5 align-items-center m-auto">
+            <input class="" type="search" placeholder="Search" aria-label="Search">
+            <button type="search" class="ms-auto" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+          <ul class="navbar-nav status ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link my-1 text-capitalize positioning-links mt-3" aria-current="page" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link my-1 text-capitalize positioning-links mt-3" id="loggedIn" *ngIf="hisName">Hello <span
+                  id="username">{{hisName}}</span></a>
+            </li>
+            <li class="nav-item text-center mx-2" routerLink="/cart">
+              <a class="nav-item">
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                  <span class="bg-danger rounded me-3" id="item-numbers">2</span>
+                  <i class="fas fa-shopping-cart my-1 fa-2x "></i>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="!hisName || clicked" id="login" routerLink="login">
+              <a class="nav-link my-1 positioning-links">login</a>
+            </li>
+            <li class="nav-item" id="logedOut" *ngIf="hisName">
+              <a class="nav-link my-1 text-capitalize positioning-links mt-3" (click)="signout()">signout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bg-nav2">
+      <div class="container-fluid">
+        <div>
+          <ul class=" d-flex me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-capitalize active" aria-current="page">Today's Deals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger text-capitalize" routerLink="/category/electronics">electronics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize" routerLink="/category/jewelery">jewelery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize" routerLink="/category/men's clothing">men's clothing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize" routerLink="/category/women's clothing">women's clothing</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/42/Egypt-hq/2021/img/Events/XCM_Manual_1372242_4282297_Egypt_WFS21_GW_DesktopSWM_7days_en_400x39_2X._CB654172238_.jpg"
+                alt="white friday logo" class="w-100">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+<!--
+<nav class="navbar navbar-expand-lg navbar-light bg-nav1">
+  <div class="d-flex flex-column container">
+    <div class="container-fluid">
+      <a class="navbar-brand" nav-link text-capitalize>MARKETY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-capitalize active" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize">Hello <span id="username">name</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-capitalize active" aria-current="page">Today's Deals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">sell</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">fashion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">grocery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">perfumes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">mobile fones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">electronics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-capitalize">appliances</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <img
+                src="https://images-eu.ssl-images-amazon.com/images/G/42/Egypt-hq/2021/img/Events/XCM_Manual_1372242_4282297_Egypt_WFS21_GW_DesktopSWM_7days_en_400x39_2X._CB654172238_.jpg"
+                alt="white friday logo" class="w-100">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-nav2">
+
+</nav> -->

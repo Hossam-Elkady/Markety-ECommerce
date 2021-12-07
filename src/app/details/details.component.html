@@ -1,0 +1,41 @@
+<div>
+  <div class="container py-5">
+    <div class="row py-5">
+      <div class="col-md-3">
+        <div class="p-3">
+          <img src="{{details.image}}" class="w-100" alt="{{details.title}} + 'image'">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1 class="h2">{{details.title}}</h1>
+        <!-- <small class="d-block">rate: {{details.rating.rate}} </small><small> count: {{details.rating.count}}</small> -->
+        <p class="text-primary">Category: {{details.category}}</p>
+        <hr>
+        <p class="text-danger h4 ">Price: {{details.price}} $</p>
+        <p>All prices include VAT.</p>
+        <p>Buy with installments and pay <span id="instalment"></span> for 48 months with select banks.</p>
+        <label class="fw-bold">Description:</label>
+        <p>{{details.description}}
+        </p>
+      </div>
+      <div class="col-md-3">
+        <div class="rounded">
+          <p class="text-danger h4 ">Price: {{details.price}} $</p>
+          <p class="fw-bold"><span class="text-info">FREE delivery:</span> Tomorrow</p>
+          <p>Fastest delivery: <span class="fw-bold">Today</span></p>
+          <p class="ddd">Order within 6 hrs and 49 mins</p>
+          <p><i class="fas fa-map-marker-alt me-1"></i> <span class="text-info">Deliver to Egypt</span></p>
+          <p class="text-success">In Stock</p>
+          <p>Qty: <select name="number" id="number">
+              <option *ngFor="let item of items" class="values" value="{{1+item}}">{{1+item}}</option>
+            </select></p>
+          <button class="btn btn-warning rounded-pill form-control mb-2" (click)="getAllData()">Add to Cart</button>
+          <button class="btn btn2 rounded-pill form-control mb-2">Buy Now</button>
+          <p>Ships from and sold by Markety.eg.</p>
+          <hr>
+          <button class="btn List">Add to List</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

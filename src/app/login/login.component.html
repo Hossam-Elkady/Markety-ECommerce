@@ -1,0 +1,28 @@
+<div class="container py-2">
+  <h1 class="mt-5 ">Register</h1>
+  <form [formGroup]="signinForm" class="py-5" (ngSubmit)="submit()">
+    <div class="my-3">
+      <label class="my-2 ">Email</label>
+      <input type="email" class="form-control" placeholder="Enter your Email" formControlName="email">
+      <div class="errors" *ngIf="signinForm.controls.email.invalid&&signinForm.controls.email.touched">
+        <p class=" my-2" *ngIf="signinForm.controls.email.errors?.email">enter valid email</p>
+        <p class=" my-2" *ngIf="signinForm.controls.email.errors?.required">email is required</p>
+      </div>
+    </div>
+    <div class="my-3">
+      <label class="my-2 ">Password</label>
+      <input type="password" class="form-control" placeholder="Enter your Password" formControlName="password">
+      <div class="errors" *ngIf="signinForm.controls.password.touched && signinForm.controls.password.invalid">
+        <p class=" my-2" *ngIf="signinForm.controls.password.errors?.required">enter valid password</p>
+        <p class=" my-2" *ngIf="signinForm.controls.password.errors?.minlength">password minimum length is 5 </p>
+        <p class=" my-2" *ngIf="signinForm.controls.password.errors?.maxlength">password maximum length is 20</p>
+      </div>
+    </div>
+    <div class="d-flex align-items-center">
+      <button [disabled]="signinForm.invalid" class="submit btn mt-1 btn-warning text-white">Submit</button>
+      <p class="text-center mt-3 m-auto">New Customer? <a class="text-primary" routerLink="/register"> Register Now</a></p>
+    </div>
+
+    <p class=" mt-5 text-capitalize" *ngIf="registered">{{message}}</p>
+  </form>
+</div>
