@@ -20,11 +20,13 @@ export class RegisterComponent implements OnInit {
   constructor(private _AuthService: AuthService, private _Router: Router) { }
 
   registered: boolean = false;
+  loading:boolean = false;
 
   submit() {
     if (this.registerForm.invalid) {
       return
     }
+    this.loading = true
     this._AuthService.signUp(this.registerForm.value).subscribe(response => {
       if (response.message == "success") {
         console.log(response)
@@ -34,6 +36,7 @@ export class RegisterComponent implements OnInit {
       else {
         console.log(response)
         this.registered = true
+        this.loading=false
       }
     })
   }

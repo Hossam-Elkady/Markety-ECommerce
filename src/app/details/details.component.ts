@@ -40,6 +40,7 @@ export class DetailsComponent implements OnInit {
   }
 
   getAllData() {
+    document.querySelector(".notification")?.classList.remove("d-none")
     this._CartService.getCartItems(JSON.stringify(sessionStorage.getItem("MarketyEmail"))).subscribe(res => {
       if (res.length == 0) {
         this.addToCart()
@@ -58,7 +59,9 @@ export class DetailsComponent implements OnInit {
       }
     })
   }
-
+  hideNotification(){
+    document.querySelector(".notification")?.classList.add("d-none")
+  }
   addToCart() {
     if (sessionStorage.getItem("MarketyEmail")) {
       this.itemsData = {

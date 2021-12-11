@@ -9,10 +9,9 @@ import { itemsData } from './shared/itemsData.model';
 export class CartService {
   constructor(private _http: HttpClient) { }
 
-  email: string = '';
+  email: string = JSON.stringify(sessionStorage.getItem('MarketyEmail'));
 
   postCartItem(itemData: itemsData) {
-    this.email = JSON.stringify(sessionStorage.getItem('MarketyEmail'));
     return this._http.post(
       `https://markety-8c094-default-rtdb.europe-west1.firebasedatabase.app/${this.email}.json`,
       itemData
@@ -39,13 +38,18 @@ export class CartService {
     return this._http.get(`https://fakestoreapi.com/products/${itemsId}`);
   }
 
-  getCount(email: string, fireBaseId: any){
+  getCount(email: string, fireBaseId: any) {
     return this._http.get(`https://markety-8c094-default-rtdb.europe-west1.firebasedatabase.app/${email}/${fireBaseId}/count.json`)
   }
 
   updateItemCounter(email: string, fireBaseId: any, count: number) {
     return this._http.put(
       `https://markety-8c094-default-rtdb.europe-west1.firebasedatabase.app/${email}/${fireBaseId}/count.json`, count
+    )
+  }
+  deleteItemFromCart(fireBaseId: any) {
+    return this._http.delete(
+      `https://markety-8c094-default-rtdb.europe-west1.firebasedatabase.app/${this.email}/${fireBaseId}.json`
     )
   }
 }

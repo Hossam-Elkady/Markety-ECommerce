@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -7,10 +7,13 @@ import { CartService } from '../cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, DoCheck {
   responseObject: any;
 
   constructor(private CartService: CartService) { }
+  ngDoCheck(): void {
+    this.sum 
+  }
   email = JSON.stringify(sessionStorage.getItem('MarketyEmail'));
   items: any[] = [];
   itemsDetails: any = {};
@@ -25,7 +28,7 @@ export class CartComponent implements OnInit {
   subtotal: any;
   sum: number = 0;
   subTotalMoney: number = 0;
-
+  totalItems: any[] = [];
   ngOnInit(): void {
     this.getItems();
     this.subtotal = document.getElementById("subtotal")?.innerHTML;
@@ -33,16 +36,18 @@ export class CartComponent implements OnInit {
 
   getItems() {
     this.CartService.getCartItems(this.email).subscribe((res) => {
+      this.totalItems = res;
       res.forEach((response) => {
-        this.getitemCountById(response.fireBaseId)
+        this.fireBaseId = response.fireBaseId;
+        this.getitemCountById(this.fireBaseId)
         this.getItemsDataById(response.id)
         if (response.count != 1) {
           this.itemQuantity = response.count
         }
       })
     })
-
   }
+
   Counts: any = 5;
   getitemCountById(fireBaseId: any) {
     this.CartService.getCount(JSON.stringify(sessionStorage.getItem("MarketyEmail")), fireBaseId).subscribe(res => {
@@ -69,10 +74,10 @@ export class CartComponent implements OnInit {
   }
 
   removeCoupon() {
-    this.sum *1.2;
+    this.sum * 1.2;
     document.getElementById("getCoupon")?.removeAttribute("disabled")
     document.getElementById("submitCoupon")?.removeAttribute("disabled")
-    document.getElementById("remove")?.setAttribute("disabled","true")
+    document.getElementById("remove")?.setAttribute("disabled", "true")
   }
 
   getNumber(e: any) {
@@ -99,6 +104,28 @@ export class CartComponent implements OnInit {
       document.getElementById("PROMOTION")?.classList.add("spinReverse")
     }
     document.getElementById("Coupon")?.classList.toggle("d-none")
+  }
+  deletedItemIndex: any;
+  deleteItem(ele: number) {
+    this.deletedItemIndex = ele;
+    this.items.slice(ele, 1)
+    document.querySelector(".sureToDelete")?.classList.remove("d-none")
+    document.querySelector(".sureToDelete")?.classList.add("d-flex")
+  }
+  cancelDelete() {
+    document.querySelector(".sureToDelete")?.classList.add("d-none")
+    document.querySelector(".sureToDelete")?.classList.remove("d-flex")
+  }
+  deletedItemData: any[] = []
+  confirmDelete() {
+    this.items.splice(this.deletedItemIndex, 1)
+    this.totalItems[this.deletedItemIndex]
+    console.log(this.totalItems[this.deletedItemIndex].fireBaseId);
+    this.CartService.deleteItemFromCart(this.totalItems[this.deletedItemIndex].fireBaseId).subscribe(e => {
+      console.log(e);
+    })
+    this.getItems()
+    this.cancelDelete();
   }
 
 }

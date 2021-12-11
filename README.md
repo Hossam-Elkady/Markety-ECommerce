@@ -1,4 +1,11 @@
-# ECommerce
+# Markety E-Commerce
+An Angular project that uses multiple APIs one for authorization and the other for getting products data which is Faker Store API Showing them in Amazon UI Design
+### note
+this project isn't finished yet
+
+## live demo
+https://markety.netlify.app/#/home
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
 

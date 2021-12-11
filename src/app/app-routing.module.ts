@@ -15,15 +15,15 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
-  { path: "cart", component: CartComponent ,canActivate:[AuthGuard]},
-  { path: "checkout", component: CheckoutComponent,canActivate:[AuthGuard] },
+  { path: "cart", component: CartComponent, canActivate: [AuthGuard] },
+  { path: "checkout", component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: "details/:id", component: DetailsComponent },
   { path: "category/:name", component: CategoryComponent },
   { path: "**", component: NotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

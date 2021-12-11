@@ -2,74 +2,107 @@ h4 {
     width: 200px;
 }
 
-.light {
-    background-color: #c1c1c1;
-}
-i{
+small {
     cursor: pointer;
 }
 
-td{
+.sureToDelete {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99999999;
+}
+
+.innerToDelete {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    flex-direction: column;
+    width: 50%;
+    height: 35%;
+    background-color: #131921;
+    color: white;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.light {
+    background-color: #c1c1c1;
+}
+
+i {
+    cursor: pointer;
+}
+
+td {
     vertical-align: middle;
     text-align: center;
 }
+
 .addingCoupon {
     animation: spin 1s;
     -webkit-animation: spin 1s;
 }
-.spinReverse{
+
+.spinReverse {
     animation: spinReverse 1s;
     -webkit-animation: spinReverse 1s;
 }
 
 @keyframes spin {
     0% {
-    transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    font-size: 16px;
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        font-size: 16px;
     }
-    50%{
+    50% {
         font-size: 20px;
     }
     100% {
-    transform: rotate(540deg);
-    -webkit-transform: rotate(540deg);
-    -moz-transform: rotate(540deg);
-    -ms-transform: rotate(540deg);
-    -o-transform: rotate(540deg);
-    font-size: 16px;
+        transform: rotate(540deg);
+        -webkit-transform: rotate(540deg);
+        -moz-transform: rotate(540deg);
+        -ms-transform: rotate(540deg);
+        -o-transform: rotate(540deg);
+        font-size: 16px;
+    }
 }
-}
+
 @keyframes spinReverse {
     100% {
-    transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    font-size: 16px;
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        font-size: 16px;
     }
-    50%{
+    50% {
         font-size: 20px;
     }
     0% {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    font-size: 16px;
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        font-size: 16px;
     }
 }
+
 // input::-webkit-outer-spin-button,
 // input::-webkit-inner-spin-button {
 //     -webkit-appearance: none;
 //     margin: 0;
 // }
-.minus{
+.minus {
     margin: 0px;
     width: 30px;
     height: 30px;
@@ -85,11 +118,13 @@ td{
     justify-content: center;
     align-items: center;
 }
-h4{
+
+h4 {
     text-align: left;
     width: 100%;
 }
-.plus{
+
+.plus {
     margin: 0px;
     width: 30px;
     height: 30px;
@@ -105,22 +140,27 @@ h4{
     justify-content: center;
     align-items: center;
 }
-.full{
+
+.full {
     background-color: #EAEDED !important;
 }
-.container-fluid{
+
+.container-fluid {
     background-color: white;
 }
-small{
+
+small {
     text-align: left;
     width: 100%;
 }
-.brdr{
+
+.brdr {
     width: 1px;
     height: 30px;
     background-color: #c0c0c0;
 }
-.later{
+
+.later {
     color: #2cabb4;
     width: auto;
 }

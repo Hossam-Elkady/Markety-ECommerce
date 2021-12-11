@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { CartService } from '../cart.service';
@@ -9,12 +9,12 @@ import { CartService } from '../cart.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit, OnChanges {
+export class NavbarComponent implements OnInit, DoCheck {
   navLink: any;
   constructor(private _AuthService: AuthService, private _CartService: CartService, private _Router: Router) {
   }
-  ngOnChanges(itemsNumbers: SimpleChanges): void {
-    this.getDataLength()
+  ngDoCheck(): void {
+    this.getDataLength();
   }
 
   name: any;
